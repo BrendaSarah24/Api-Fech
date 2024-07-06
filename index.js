@@ -7,9 +7,9 @@ const btnAfter = document.getElementById('btnAfter');
 btnAfter.addEventListener('click', () => {
 	if(page < 2){
 		page += 1;
-        cargarDatos();
         $('#onload').fadeIn(); // Mostrar el loader con un efecto de desvanecimiento
         $('body').addClass('hidden'); // Ocultar el contenido principal
+		cargarDatos();
         document.getElementById('btnAfter').hidden = true;
 	}
 });
@@ -17,9 +17,9 @@ btnAfter.addEventListener('click', () => {
 btnBefore.addEventListener('click', () => {
 	if(page > 1){
 		page -= 1;
-        cargarDatos();
         $('#onload').fadeIn(); // Mostrar el loader con un efecto de desvanecimiento
         $('body').addClass('hidden'); // Ocultar el contenido principal
+		cargarDatos();
         document.getElementById('btnAfter').hidden = false;
 	}
 });
