@@ -9,9 +9,8 @@ btnAfter.addEventListener('click', () => {
 		page += 1;
         $('#onload').fadeIn(); // Mostrar el loader con un efecto de desvanecimiento
         $('body').addClass('hidden'); // Ocultar el contenido principal
-		cargarDatos();
+		cargarDatos(page);
         document.getElementById('btnAfter').hidden = true;
-        $('#btnAfter').hide();
 	}
 });
 
@@ -20,15 +19,14 @@ btnBefore.addEventListener('click', () => {
 		page -= 1;
         $('#onload').fadeIn(); // Mostrar el loader con un efecto de desvanecimiento
         $('body').addClass('hidden'); // Ocultar el contenido principal
-		cargarDatos();
+		cargarDatos(page);
         document.getElementById('btnAfter').hidden = false;
-        $('#btnBefore').hide();
 	}
 });
 
 
 
-const cargarDatos= async()=>{
+const cargarDatos= async(page)=>{
     try{
         const respuesta=await fetch(`https://reqres.in/api/users?delay=3&page=${page}`);
         $('#onload').fadeOut();
