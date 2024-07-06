@@ -7,8 +7,8 @@ const btnAfter = document.getElementById('btnAfter');
 btnAfter.addEventListener('click', () => {
 	if(page < 2){
 		page += 1;
-        $('#onload').fadeIn(); // Mostrar el loader con un efecto de desvanecimiento
-        $('body').addClass('hidden'); // Ocultar el contenido principal
+        /* $('#onload').fadeIn(); // Mostrar el loader con un efecto de desvanecimiento
+        $('body').addClass('hidden'); // Ocultar el contenido principal */
 		cargarDatos();
         document.getElementById('btnAfter').hidden = true;
 	}
@@ -17,8 +17,8 @@ btnAfter.addEventListener('click', () => {
 btnBefore.addEventListener('click', () => {
 	if(page > 1){
 		page -= 1;
-        $('#onload').fadeIn(); // Mostrar el loader con un efecto de desvanecimiento
-        $('body').addClass('hidden'); // Ocultar el contenido principal
+        /* $('#onload').fadeIn(); // Mostrar el loader con un efecto de desvanecimiento
+        $('body').addClass('hidden'); // Ocultar el contenido principal */
 		cargarDatos();
         document.getElementById('btnAfter').hidden = false;
 	}
@@ -28,6 +28,8 @@ btnBefore.addEventListener('click', () => {
 
 const cargarDatos= async()=>{
     try{
+        $('#onload').fadeIn(); // Mostrar el loader con un efecto de desvanecimiento
+        $('body').addClass('hidden'); // Ocultar el contenido principal
         const respuesta=await fetch(`https://reqres.in/api/users?delay=3&page=${page}`);
         $('#onload').fadeOut();
         $('body').removeClass('hidden');
