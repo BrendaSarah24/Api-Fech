@@ -5,20 +5,20 @@ const btnAfter = document.getElementById('btnAfter');
 
 
 btnAfter.addEventListener('click', () => {
-    $('#onload').fadeIn(); // Mostrar el loader con un efecto de desvanecimiento
-    $('body').addClass('hidden'); // Ocultar el contenido principal
 	if(page < 2){
 		page += 1;
+        $('#onload').fadeIn(); // Mostrar el loader con un efecto de desvanecimiento
+        $('body').addClass('hidden'); // Ocultar el contenido principal
 		cargarDatos(page);
         document.getElementById('btnAfter').hidden = true;
 	}
 });
 
 btnBefore.addEventListener('click', () => {
-    $('#onload').fadeIn(); // Mostrar el loader con un efecto de desvanecimiento
-    $('body').addClass('hidden'); // Ocultar el contenido principal
 	if(page > 1){
 		page -= 1;
+        $('#onload').fadeIn(); // Mostrar el loader con un efecto de desvanecimiento
+        $('body').addClass('hidden'); // Ocultar el contenido principal
 		cargarDatos(page);
         document.getElementById('btnAfter').hidden = false;
 	}
@@ -28,7 +28,6 @@ btnBefore.addEventListener('click', () => {
 
 const cargarDatos= async(page)=>{
     try{
-        $('#onload').fadeIn(); // Mostrar el loader con un efecto de desvanecimiento
         $('body').addClass('hidden'); // Ocultar el contenido principal
         const respuesta=await fetch(`https://reqres.in/api/users?delay=3&page=${page}`);
         await $('#onload').fadeOut();
