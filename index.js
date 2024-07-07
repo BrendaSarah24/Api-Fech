@@ -9,7 +9,9 @@ btnAfter.addEventListener('click', async() => {
 		page += 1;
         $('#onload').fadeIn(); // Mostrar el loader con un efecto de desvanecimiento
         $('body').addClass('hidden'); // Ocultar el contenido principal
-		await cargarDatos();
+		await cargarDatos(page);
+        await $('#onload').fadeOut();
+        await $('body').removeClass('hidden');
         document.getElementById('btnAfter').hidden = true;
 	}
 });
@@ -19,14 +21,16 @@ btnBefore.addEventListener('click', async() => {
 		page -= 1;
         $('#onload').fadeIn(); // Mostrar el loader con un efecto de desvanecimiento
         $('body').addClass('hidden'); // Ocultar el contenido principal
-		await cargarDatos();
+		await cargarDatos(page);
+        $('#onload').fadeOut();
+        $('body').removeClass('hidden');
         document.getElementById('btnAfter').hidden = false;
 	}
 });
 
 
 
-const cargarDatos= async()=>{
+const cargarDatos= async(page)=>{
     try{
         const respuesta=await fetch(`https://reqres.in/api/users?delay=3&page=${page}`);
         await $('#onload').fadeOut();
@@ -91,5 +95,5 @@ const cargarDatos= async()=>{
         console.log("esta mal");
     }
 } */
-cargarDatos();
+cargarDatos(page);
 /* getData(); */
