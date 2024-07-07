@@ -8,6 +8,7 @@ btnAfter.addEventListener('click', () => {
 	if(page < 2){
 		page += 1;
         $('#onload').fadeIn(); // Mostrar el loader con un efecto de desvanecimiento
+        $('body').addClass('hidden'); // Ocultar el contenido principal
 		cargarDatos(page);
         document.getElementById('btnAfter').hidden = true;
 	}
@@ -17,6 +18,7 @@ btnBefore.addEventListener('click', () => {
 	if(page > 1){
 		page -= 1;
         $('#onload').fadeIn(); // Mostrar el loader con un efecto de desvanecimiento
+        $('body').addClass('hidden'); // Ocultar el contenido principal
 		cargarDatos(page);
         document.getElementById('btnAfter').hidden = false;
 	}
