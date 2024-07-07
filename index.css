@@ -91,7 +91,7 @@
   
 }
 .hidden{
-  display:none;
+  /* display:none; */ /* con esto funciono pero no de la manera que quiero */
   overflow: hidden;
   
 }
