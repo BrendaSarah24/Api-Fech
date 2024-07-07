@@ -28,6 +28,8 @@ btnBefore.addEventListener('click', () => {
 
 const cargarDatos= async(page)=>{
     try{
+        $('#onload').fadeIn(); // Mostrar el loader con un efecto de desvanecimiento
+        $('body').addClass('hidden'); // Ocultar el contenido principal
         const respuesta=await fetch(`https://reqres.in/api/users?delay=3&page=${page}`);
         await $('#onload').fadeOut();
         await $('body').removeClass('hidden');
