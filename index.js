@@ -4,26 +4,20 @@ const btnBefore = document.getElementById('btnBefore');
 const btnAfter = document.getElementById('btnAfter');
 
 
-btnAfter.addEventListener('click', async() => {
+btnAfter.addEventListener('click', () => {
 	if(page < 2){
 		page += 1;
         $('#onload').fadeIn(); // Mostrar el loader con un efecto de desvanecimiento
-        $('body').addClass('hidden'); // Ocultar el contenido principal
-		await cargarDatos(page);
-        await $('#onload').fadeOut();
-        await $('body').removeClass('hidden');
+		cargarDatos(page);
         document.getElementById('btnAfter').hidden = true;
 	}
 });
 
-btnBefore.addEventListener('click', async() => {
+btnBefore.addEventListener('click', () => {
 	if(page > 1){
 		page -= 1;
         $('#onload').fadeIn(); // Mostrar el loader con un efecto de desvanecimiento
-        $('body').addClass('hidden'); // Ocultar el contenido principal
-		await cargarDatos(page);
-        $('#onload').fadeOut();
-        $('body').removeClass('hidden');
+		cargarDatos(page);
         document.getElementById('btnAfter').hidden = false;
 	}
 });
