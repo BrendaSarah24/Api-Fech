@@ -7,8 +7,8 @@ const btnAfter = document.getElementById('btnAfter');
 btnAfter.addEventListener('click', async() => {
 	if(page < 2){
 		page += 1;
-        await $('#onload').fadeIn(); // Mostrar el loader con un efecto de desvanecimiento
-        await $('body').addClass('hidden'); // Ocultar el contenido principal
+        $('#onload').fadeIn(); // Mostrar el loader con un efecto de desvanecimiento
+        $('body').addClass('hidden'); // Ocultar el contenido principal
 		await cargarDatos();
         document.getElementById('btnAfter').hidden = true;
 	}
@@ -17,8 +17,8 @@ btnAfter.addEventListener('click', async() => {
 btnBefore.addEventListener('click', async() => {
 	if(page > 1){
 		page -= 1;
-        await $('#onload').fadeIn(); // Mostrar el loader con un efecto de desvanecimiento
-        await $('body').addClass('hidden'); // Ocultar el contenido principal
+        $('#onload').fadeIn(); // Mostrar el loader con un efecto de desvanecimiento
+        $('body').addClass('hidden'); // Ocultar el contenido principal
 		await cargarDatos();
         document.getElementById('btnAfter').hidden = false;
 	}
@@ -29,8 +29,8 @@ btnBefore.addEventListener('click', async() => {
 const cargarDatos= async()=>{
     try{
         const respuesta=await fetch(`https://reqres.in/api/users?delay=3&page=${page}`);
-        $('#onload').fadeOut();
-        $('body').removeClass('hidden');
+        await $('#onload').fadeOut();
+        await $('body').removeClass('hidden');
        /*  console.log(respuesta); */
         const data=await respuesta.json();
         /* const id=[];
