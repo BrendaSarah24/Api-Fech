@@ -8,7 +8,7 @@ btnAfter.addEventListener('click', () => {
 	if(page < 2){
 		page += 1;
         $('#onload').fadeIn(); // Mostrar el loader con un efecto de desvanecimiento
-        $('#body').addClass('hidden'); // Ocultar el contenido principal
+        $('body').addClass('hidden'); // Ocultar el contenido principal
 		cargarDatos(page);
         document.getElementById('btnAfter').hidden = true;
 	}
@@ -18,7 +18,7 @@ btnBefore.addEventListener('click', () => {
 	if(page > 1){
 		page -= 1;
         $('#onload').fadeIn(); // Mostrar el loader con un efecto de desvanecimiento
-        $('#body').addClass('hidden'); // Ocultar el contenido principal
+        $('body').addClass('hidden'); // Ocultar el contenido principal
 		cargarDatos(page);
         document.getElementById('btnAfter').hidden = false;
 	}
@@ -28,10 +28,10 @@ btnBefore.addEventListener('click', () => {
 
 const cargarDatos= async(page)=>{
     try{
-        $('#body').addClass('hidden'); // Ocultar el contenido principal
+        $('body').addClass('hidden'); // Ocultar el contenido principal
         const respuesta=await fetch(`https://reqres.in/api/users?delay=3&page=${page}`);
         await $('#onload').fadeOut();
-        await $('#body').removeClass('hidden');
+        await $('body').removeClass('hidden');
        /*  console.log(respuesta); */
         const data=await respuesta.json();
         /* const id=[];
